@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>أمي الحبيبة · هدية ودعاء</title>
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Tajawal:wght@300;400;500;700&display=swap" rel="stylesheet">
+<script>
+tailwind.config = {
+  theme: { extend: {
+    colors: {
+      cream:'rgb(var(--cream) / <alpha-value>)', sand:'rgb(var(--sand) / <alpha-value>)',
+      sage:'rgb(var(--sage) / <alpha-value>)', deep:'rgb(var(--deep) / <alpha-value>)',
+      rose:'rgb(var(--rose) / <alpha-value>)', gold:'rgb(var(--gold) / <alpha-value>)',
+      paper:'rgb(var(--paper) / <alpha-value>)'
+    },
+    fontFamily: { amiri:['Amiri','serif'], tj:['Tajawal','Tahoma','sans-serif'] }
+  }}
+}
+</script>
+<style>
+  :root{--cream:251 246 238;--sand:241 231 214;--sage:125 154 130;--deep:63 90 71;--rose:232 180 184;--gold:201 164 92;--paper:255 255 255;--ink:58 58 53;color-scheme:light;
+    box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+  @media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--cream:22 30 26;--sand:48 60 52;--sage:150 180 156;--deep:232 240 230;--rose:200 130 138;--gold:214 180 110;--paper:38 50 43;--ink:225 230 224;color-scheme:dark}}
+  :root[data-theme="dark"]{--cream:22 30 26;--sand:48 60 52;--sage:150 180 156;--deep:232 240 230;--rose:200 130 138;--gold:214 180 110;--paper:38 50 43;--ink:225 230 224;color-scheme:dark}
+  html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+  body{font-family:'Tajawal',Tahoma,sans-serif;background:rgb(var(--cream));color:rgb(var(--ink));overflow-x:hidden}
+  .glass{background:rgb(var(--paper)/.62);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+    border:1px solid rgb(var(--paper)/.6);box-shadow:0 20px 60px -20px rgb(var(--sage)/.4)}
+  .gold-text{background:linear-gradient(120deg,#a8832f,#e3c887,#a8832f);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .aura{position:fixed;border-radius:50%;filter:blur(90px);opacity:.5;z-index:-1;animation:drift 18s ease-in-out infinite alternate}
+  @keyframes drift{to{transform:translate(60px,-50px) scale(1.15)}}
+  .petal{position:fixed;top:-20px;z-index:0;pointer-events:none;border-radius:60% 0 60% 0;animation:fall linear infinite;opacity:.7}
+  @keyframes fall{to{transform:translateY(110vh) rotate(540deg) translateX(60px)}}
+  .reveal{opacity:0;transform:translateY(40px);transition:all 1s cubic-bezier(.2,.7,.2,1)}
+  .reveal.show{opacity:1;transform:none}
+  .divider{height:1px;background:linear-gradient(90deg,transparent,rgb(var(--gold)),transparent)}
+  .chip{transition:all .3s}.chip:hover{transform:translateY(-3px)}
+  .chip.active{background:rgb(var(--deep));color:rgb(var(--cream));box-shadow:0 10px 25px -8px rgb(var(--deep)/.5)}
+  .tap{transition:transform .12s}.tap:active{transform:scale(.94)}
+  .glow{animation:glow 3.5s ease-in-out infinite}
+  @keyframes glow{50%{box-shadow:0 0 70px 10px rgb(var(--rose)/.55)}}
+  .fadein{animation:fi .7s ease}
+  @keyframes fi{from{opacity:0;transform:translateY(10px)}}
+  .track{stroke:rgb(var(--sand))}
+  textarea,input{outline:none;color:rgb(var(--ink))}
+  ::selection{background:rgb(var(--rose))}
+</style>
+</head>
+<body>
+
+<div class="aura w-[420px] h-[420px] bg-rose -top-20 -right-20"></div>
+<div class="aura w-[480px] h-[480px] bg-sage/60 top-1/2 -left-40" style="animation-delay:-6s"></div>
+<div class="aura w-[360px] h-[360px] bg-gold/40 bottom-0 right-1/4" style="animation-delay:-11s"></div>
+<div id="petals"></div>
+
+<!-- 1. المقدمة -->
+<header class="relative min-h-screen flex items-center justify-center px-6 text-center">
+  <div class="reveal max-w-3xl">
+    <div class="mx-auto mb-8 w-24 h-24 rounded-full glass glow flex items-center justify-center text-5xl">🌷</div>
+    <p class="text-sage tracking-[.3em] text-sm mb-6">هَدِيَّةُ حُبٍّ وَدُعَاءٍ</p>
+    <h1 class="font-amiri text-5xl md:text-7xl leading-[1.5] text-deep">
+      أمي الحبيبة،<br><span class="gold-text">نبض حياتي</span>.. حفظك الله
+    </h1>
+    <div class="divider w-48 mx-auto my-8"></div>
+    <p class="font-amiri text-xl md:text-2xl text-deep/80 leading-loose">
+      يا من كان دعاؤها نوراً في دربي، وحنانها وطناً لا يغيب..<br>
+      اللهم أطل في عمرها على طاعتك، وأسبغ عليها ثوب الصحة والعافية.
+    </p>
+    <a href="#gift" class="inline-block mt-10 px-9 py-3.5 rounded-full bg-deep text-cream shadow-xl hover:bg-sage transition tap">ادخلي إلى هديتك ♡</a>
+  </div>
+</header>
+
+<!-- 2. الهدية والدعاء -->
+<section id="gift" class="relative px-6 py-24 max-w-4xl mx-auto">
+  <div class="text-center mb-12 reveal">
+    <h2 class="font-amiri text-4xl md:text-5xl text-deep">رسالة حبٍّ وامتنان</h2>
+    <div class="divider w-32 mx-auto mt-5"></div>
+  </div>
+  <article class="glass rounded-[2rem] p-8 md:p-14 reveal relative">
+    <span class="absolute -top-8 right-8 font-amiri text-9xl text-rose/70 leading-none select-none">”</span>
+    <div class="font-amiri text-xl md:text-2xl leading-[2.3] text-deep relative">
+      <p>إلى أغلى إنسانة في هذا الكون.. أمي،</p>
+      <p class="mt-4">مهما كتبتُ لن توفّي الكلمات حقّكِ، فأنتِ من سهر ليرتاح أبناؤها، وبكى بصمت ليبتسموا، ودعا لهم في كل سجدة. كل خطوة نجاح في حياتي أصلها دعاؤكِ، وكل طمأنينة في قلبي مصدرها حضنكِ.</p>
+      <p class="mt-4">هذه الصفحة صدقةٌ وهديةٌ لكِ، كل ذكر يُقال فيها وكل دعاء يُكتب لكِ بإذن الله في ميزان حسناتكِ، وأسأل الله أن يمتّعكِ بالصحة ويجزيكِ عنا خير الجزاء.</p>
+      <p class="mt-6 text-gold font-bold">ابنكِ المحب ♡</p>
+    </div>
+  </article>
+
+  <div class="mt-14 reveal">
+    <h3 class="text-center text-deep mb-6 text-lg">اختاري دعاءً وأهديه لها</h3>
+    <div id="duaChips" class="flex flex-wrap justify-center gap-3"></div>
+    <div class="glass rounded-3xl mt-8 p-8 text-center min-h-[170px] flex flex-col items-center justify-center">
+      <p id="duaText" class="font-amiri text-2xl md:text-3xl leading-loose text-deep fadein">اضغطي على أحد الأدعية لتظهر هنا</p>
+      <button id="copyDua" class="mt-5 text-sm text-sage hover:text-deep transition hidden">📋 نسخ الدعاء</button>
+    </div>
+  </div>
+</section>
+
+<!-- 3. التسبيح -->
+<section class="relative px-6 py-24 max-w-3xl mx-auto">
+  <div class="text-center mb-12 reveal">
+    <h2 class="font-amiri text-4xl md:text-5xl text-deep">سبّح وأهدِ الأجر لها</h2>
+    <p class="text-deep/70 mt-4">اختر الذكر ثم اضغط على الدائرة، ثوابه هدية لأمي بإذن الله</p>
+    <div class="divider w-32 mx-auto mt-5"></div>
+  </div>
+  <div class="glass rounded-[2rem] p-8 md:p-12 reveal">
+    <div id="dhikrChips" class="flex flex-wrap justify-center gap-3 mb-10"></div>
+    <div class="relative mx-auto w-64 h-64 md:w-72 md:h-72">
+      <svg viewBox="0 0 200 200" class="absolute inset-0 -rotate-90">
+        <circle class="track" cx="100" cy="100" r="90" fill="none" stroke-width="8"/>
+        <circle id="ring" cx="100" cy="100" r="90" fill="none" stroke="url(#g)" stroke-width="8" stroke-linecap="round"
+                stroke-dasharray="565.5" stroke-dashoffset="565.5" style="transition:stroke-dashoffset .35s"/>
+        <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#7d9a82"/><stop offset="1" stop-color="#c9a45c"/></linearGradient></defs>
+      </svg>
+      <button id="tapBtn" class="tap absolute inset-5 rounded-full bg-gradient-to-br from-paper to-sand shadow-[0_15px_40px_-10px_rgba(63,90,71,.45)] flex flex-col items-center justify-center">
+        <span id="dhikrName" class="font-amiri text-2xl text-deep">سبحان الله</span>
+        <span id="count" class="text-6xl font-bold text-deep my-1">0</span>
+        <span class="text-xs text-sage">اضغطي للتسبيح</span>
+      </button>
+    </div>
+    <div class="grid grid-cols-3 gap-4 mt-10 text-center">
+      <div class="rounded-2xl bg-paper/70 p-4"><div class="text-xs text-sage">هذا الذكر</div><div id="dTotal" class="text-2xl font-bold text-deep">0</div></div>
+      <div class="rounded-2xl bg-paper/70 p-4"><div class="text-xs text-sage">دورات (٣٣)</div><div id="laps" class="text-2xl font-bold text-deep">0</div></div>
+      <div class="rounded-2xl bg-paper/70 p-4"><div class="text-xs text-sage">المجموع المُهدى</div><div id="gTotal" class="text-2xl font-bold gold-text">0</div></div>
+    </div>
+    <div class="text-center mt-6"><button id="resetBtn" class="text-sm text-deep/60 hover:text-deep underline underline-offset-4">إعادة العدّاد</button></div>
+  </div>
+</section>
+
+<!-- 4. الرسائل -->
+<section class="relative px-6 py-24 max-w-3xl mx-auto">
+  <div class="text-center mb-12 reveal">
+    <h2 class="font-amiri text-4xl md:text-5xl text-deep">كلمة طيبة.. ودعوة صادقة</h2>
+    <p class="text-deep/70 mt-4">اتركوا دعاءً أو كلمة محبة لأمي</p>
+    <div class="divider w-32 mx-auto mt-5"></div>
+  </div>
+  <div class="glass rounded-[2rem] p-6 md:p-10 reveal">
+    <input id="mName" maxlength="40" placeholder="اسمك (اختياري)" class="w-full rounded-2xl bg-paper/80 px-5 py-3.5 mb-4 border border-sand focus:border-sage transition">
+    <textarea id="mText" rows="4" maxlength="400" placeholder="اكتب دعاءك أو كلمتك الطيبة هنا..." class="w-full rounded-2xl bg-paper/80 px-5 py-4 border border-sand focus:border-sage transition resize-none"></textarea>
+    <div class="flex flex-wrap gap-3 mt-4">
+      <button id="sendMsg" class="tap flex-1 min-w-[140px] py-3.5 rounded-full bg-deep text-cream hover:bg-sage transition shadow-lg">إرسال الدعاء 🤍</button>
+      <button id="waMsg" class="tap flex-1 min-w-[140px] py-3.5 rounded-full bg-[#25D366] text-white hover:opacity-90 transition shadow-lg">مشاركة عبر واتساب</button>
+    </div>
+    <p id="mStatus" class="text-center text-sage text-sm mt-3 h-5"></p>
+  </div>
+  <div id="msgList" class="mt-10 space-y-4"></div>
+</section>
+
+<!-- 5. الخاتمة -->
+<footer class="relative px-6 pt-20 pb-14 text-center">
+  <div class="max-w-2xl mx-auto reveal">
+    <div class="text-4xl mb-6">🤲</div>
+    <p class="font-amiri text-2xl md:text-3xl leading-loose text-deep">«وَقَضَىٰ رَبُّكَ أَلَّا تَعْبُدُوا إِلَّا إِيَّاهُ وَبِالْوَالِدَيْنِ إِحْسَانًا»</p>
+    <p class="text-sage text-sm mt-1">سورة الإسراء · ٢٣</p>
+    <div class="divider w-40 mx-auto my-8"></div>
+    <p class="font-amiri text-xl text-deep/80 leading-loose">
+      جاء رجل إلى النبي ﷺ فقال: من أحق الناس بحسن صحابتي؟ قال: «أمك، ثم أمك، ثم أمك، ثم أبوك».<br>
+      <span class="text-sm text-sage">متفق عليه</span>
+    </p>
+    <p class="mt-10 text-deep/70">اللهم احفظ أمي بحفظك، وأطل عمرها في طاعتك، وارزقنا رضاها وبرّها. آمين ♡</p>
+    <p class="mt-8 text-xs text-deep/40">صدقة وهدية لأمي الحبيبة</p>
+  </div>
+</footer>
+
+<script>
+const $ = s => document.querySelector(s);
+const store = {
+  get(k, d){ try{ const v = JSON.parse(localStorage.getItem(k)); return v ?? d }catch(e){ return d } },
+  set(k, v){ try{ localStorage.setItem(k, JSON.stringify(v)) }catch(e){} }
+};
+
+/* بتلات */
+const pc = ['#e8b4b8','#f3d1d3','#c9d8c5','#e3c887'];
+for(let i=0;i<14;i++){
+  const p = document.createElement('div'); p.className='petal';
+  const s = 8 + Math.random()*12;
+  Object.assign(p.style,{left:Math.random()*100+'vw',width:s+'px',height:s+'px',background:pc[i%4],
+    animationDuration:(14+Math.random()*16)+'s',animationDelay:(-Math.random()*20)+'s'});
+  $('#petals').appendChild(p);
+}
+
+const io = new IntersectionObserver(es => es.forEach(e => e.isIntersecting && e.target.classList.add('show')), {threshold:.12});
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+/* الأدعية */
+const duas = [
+  'اللهم احفظ أمي بحفظك، وأطل في عمرها على طاعتك.',
+  'اللهم ألبس أمي ثوب الصحة والعافية، واشفها شفاءً لا يغادر سقماً.',
+  'اللهم اجعل أمي من أهل الجنة، وارزقها الفردوس الأعلى بغير حساب.',
+  'اللهم بارك لأمي في عمرها وصحتها ورزقها، وأقرّ عينها بأبنائها.',
+  'اللهم اجزِ أمي عنّا خير الجزاء، وأسعدها كما أسعدتنا.'
+];
+const names = ['السلامة','الصحة والعافية','الجنة','البركة','الجزاء'];
+const chips = $('#duaChips');
+duas.forEach((d,i) => {
+  const b = document.createElement('button');
+  b.className = 'chip px-5 py-2.5 rounded-full bg-paper/80 border border-sand text-deep';
+  b.textContent = names[i];
+  b.onclick = () => {
+    chips.querySelectorAll('.chip').forEach(c => c.classList.remove('active')); b.classList.add('active');
+    const t = $('#duaText'); t.textContent = d; t.classList.remove('fadein'); void t.offsetWidth; t.classList.add('fadein');
+    $('#copyDua').classList.remove('hidden');
+  };
+  chips.appendChild(b);
+});
+$('#copyDua').onclick = () => {
+  try{ navigator.clipboard.writeText($('#duaText').textContent) }catch(e){}
+  $('#copyDua').textContent='✓ تم النسخ'; setTimeout(()=>$('#copyDua').textContent='📋 نسخ الدعاء',1500);
+};
+
+/* التسبيح */
+const adhkar = ['سبحان الله','الحمد لله','استغفر الله','اللهم احفظ أمي'];
+let counts = store.get('counts', [0,0,0,0]), cur = 0;
+const C = 565.5, dChips = $('#dhikrChips');
+adhkar.forEach((a,i) => {
+  const b = document.createElement('button');
+  b.className = 'chip px-4 py-2.5 rounded-full bg-paper/80 border border-sand text-deep text-sm md:text-base';
+  b.textContent = a; b.onclick = () => { cur = i; render() };
+  dChips.appendChild(b);
+});
+function render(){
+  dChips.querySelectorAll('.chip').forEach((c,i)=>c.classList.toggle('active', i===cur));
+  const n = counts[cur], r = n % 33, full = n > 0 && r === 0;
+  $('#dhikrName').textContent = adhkar[cur];
+  $('#count').textContent = full ? 33 : r;
+  $('#ring').style.strokeDashoffset = C * (1 - (full ? 1 : r / 33));
+  $('#dTotal').textContent = n;
+  $('#laps').textContent = Math.floor(n / 33);
+  $('#gTotal').textContent = counts.reduce((a,b)=>a+b,0);
+}
+$('#tapBtn').onclick = () => {
+  counts[cur]++; store.set('counts', counts); render();
+  try{ navigator.vibrate && navigator.vibrate(counts[cur] % 33 === 0 ? [60,40,60] : 15) }catch(e){}
+};
+$('#resetBtn').onclick = () => { counts=[0,0,0,0]; store.set('counts',counts); render() };
+render();
+
+/* الرسائل */
+let msgs = store.get('msgs', [{n:'محب لأمي', t:'اللهم احفظها وأطل في عمرها، وألبسها ثوب الصحة والعافية. آمين.'}]);
+const esc = s => s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function renderMsgs(){
+  $('#msgList').innerHTML = msgs.map(m => `
+    <div class="glass rounded-3xl p-6 fadein">
+      <p class="font-amiri text-xl leading-loose text-deep">${esc(m.t)}</p>
+      <p class="text-sm text-sage mt-3">— ${esc(m.n || 'محب لأمي')}</p>
+    </div>`).join('');
+}
+$('#sendMsg').onclick = () => {
+  const t = $('#mText').value.trim();
+  if(!t){ $('#mStatus').textContent = 'اكتب كلمتك أولاً 🤍'; return }
+  msgs.unshift({n:$('#mName').value.trim(), t}); store.set('msgs', msgs);
+  $('#mText').value=''; renderMsgs();
+  $('#mStatus').textContent = 'جزاك الله خيراً، وصل دعاؤك 🤍';
+  setTimeout(()=>$('#mStatus').textContent='',3500);
+};
+$('#waMsg').onclick = () => {
+  const t = $('#mText').value.trim() || 'اللهم احفظ أمي وأطل في عمرها على طاعتك.';
+  window.open('https://wa.me/?text=' + encodeURIComponent(t), '_blank');
+};
+renderMsgs();
+</script>
+</body>
+</html>
